@@ -7,27 +7,37 @@ import{
     BuscarInputContainer,
     Menu,
     MenuRight,
-    Input
+    Input,
+    UserPicture
 } from './styles'
 import Logo from "../../assets/dio_logo.png"
 
-const Header = () => {
+const Header = ({autenticado}) => {
   return (
     <Wrapper>
         <Container>
             <Row>
-                <img src={Logo} alt='Logo' width={'10%'} />
-                <BuscarInputContainer>
+                <img src={Logo} alt='Logo' width={'5%'} />
+                {autenticado ? (
+                    <>
+                    <BuscarInputContainer>
                     <Input placeholder='Buscar...' />
-                </BuscarInputContainer>
-                <Menu>Live Code</Menu>
-                <Menu>Global</Menu>
+                    </BuscarInputContainer>
+                    <Menu>Live Code</Menu>
+                    <Menu>Global</Menu>
+                </>) : null}
             </Row>
 
             <Row>
-                <MenuRight href='#'>Home</MenuRight>
-                <Button title={"Entrar"}/>
-                <Button title={"Cadastrar"}/>
+            {autenticado ? (
+                    <>
+                    <UserPicture src=''/>
+                </>) : (<>
+                    <MenuRight href='#'>Home</MenuRight>
+                    <Button title={"Entrar"}/>
+                    <Button title={"Cadastrar"}/>
+                </>
+                )}
             </Row>
         </Container>
     </Wrapper>
