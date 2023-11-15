@@ -4,6 +4,7 @@ export const ButtonContainer = styled.button`
     background: #565656;
     border-radius: 22px;
     position: relative;
+    border: 2px solid #000;
 
     color: #fff;
     padding: 2px 12px;
@@ -17,6 +18,11 @@ export const ButtonContainer = styled.button`
 
         background: #E4105D;
 
+        &:hover{
+            opacity: 0.6;
+            cursor: pointer;
+        }
+
         &::after{
             content: '';
             position: absolute;
@@ -24,7 +30,7 @@ export const ButtonContainer = styled.button`
             top: -5px;
             left: -6px;
             width: calc(100% + 10px);
-            height: calc(100% + 10px);
+            height: calc(100% + 9px);
             border-radius: 22px;
         }
     `}
