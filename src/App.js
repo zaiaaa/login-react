@@ -1,7 +1,7 @@
 import { Home } from "./pages/home";
 import { Login } from "./pages/login";
 import { Feed } from "./pages/feed"
-
+import { Cadastro } from "./pages/signIn";
 
 import {
   BrowserRouter as Router,
@@ -17,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/feed" element={<Feed />} />
+          <Route path="/signin" element={<Cadastro />} />
         </Routes>
       </Router>
     </div>
