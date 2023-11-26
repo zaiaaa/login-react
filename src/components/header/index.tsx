@@ -12,9 +12,10 @@ import{
     UserPicture
 } from './styles'
 import Logo from "../../assets/dio_logo.png"
+import { IHeader } from './types'
 
 
-const Header = ({autenticado}) => {
+const Header = ({autenticado}: IHeader) => {
   
     const navigate = useNavigate();
 

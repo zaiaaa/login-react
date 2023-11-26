@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import {api} from "../../services/api"
+import { IFormData } from "./types"
 
 import { Column, Container, CriarText, EsqueciText, Row, SubtitleLogin, Title, TitleLogin, Wrapper} from './styles'
 
@@ -34,13 +35,13 @@ const Login = () => {
         control,
         handleSubmit,
         formState: { errors, isValid },
-      } = useForm({resolver: yupResolver(schema),
+      } = useForm<IFormData>({resolver: yupResolver(schema),
         mode: 'onChange',
     })
 
     console.log(isValid, errors)
     
-      const onSubmit = async formData => {
+      const onSubmit = async (formData: IFormData) => {
         try {
             const { data } = await api.get(`users?email=${formData.email}&senha=${formData.password}`)
             console.log(data)
@@ -49,8 +50,8 @@ const Login = () => {
             }else{
                 alert('Email ou senha inválidos')
             }
-        } catch (error) {
-            alert("houve um erro -> ", error)
+        } catch (error: any) {
+            alert(error)
         }
     }
 

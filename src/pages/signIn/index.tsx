@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header } from '../../components/header'
-import { Container, JaTemConta, ContaCriada ,LeftSide, RightSide, TitleForm, SubTitleForm, Wrapper, Footer } from './styles'
+import { Container, JaTemConta ,LeftSide, RightSide, TitleForm, SubTitleForm, Wrapper, Footer } from './styles'
 import { Button } from '../../components/button'
 import {Link, useNavigate} from 'react-router-dom'
 import { Input } from "../../components/Input"
@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import {api} from "../../services/api"
+import { IFormDataCad } from './types'
 
 
 const schema = yup
@@ -32,7 +33,7 @@ const Cadastro = () => {
     
     console.log(errors, isValid)
 
-    const onSubmit = async (Formdata) => {
+    const onSubmit = async (Formdata: IFormDataCad) => {
         const isPosted = await api.post('users', {
             name: Formdata.nomeCompleto,
             email: Formdata.email,

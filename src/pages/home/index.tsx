@@ -31,7 +31,7 @@ const Home = () => {
             </div>
 
             <div>
-                <img src={''} alt="" srcset="" />
+                <img src={''} alt="" />
             </div>
         </Container>
     </>)
